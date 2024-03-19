@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: Administrator
+Build-Jdk: 1.8.0_291
+Implementation-Version: 2.7.0
+Implementation-Vendor-Id: org.springframework.boot
+Main-Class: ${start-class}
+

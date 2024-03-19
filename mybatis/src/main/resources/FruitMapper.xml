@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Fruit">
+
+    <select id="selectFruit" resultType="dao.Fruit">
+        select name,price,location,season from t_fruits where id = #{id}
+    </select>
+
+
+    <insert id="insertFruit">
+         insert into t_fruits (name,price,location,season) values(#{name},#{price},#{location},#{season})
+    </insert>
+
+</mapper>

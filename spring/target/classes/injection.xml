@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="userDaoBean" class="injection.UserDao"/>
+    <bean id="userServiceBean" class="injection.UserService">
+        <property name="userDao" ref="userDaoBean"/>
+    </bean>
+    <bean id="orderDaoBean" class="injection.OrderDao"/>
+    <bean id="orderServiceBean" class="injection.OrderService">
+        <!--index="0"表示构造方法的第一个参数，将orderDaoBean对象传递给构造方法的第一个参数。-->
+        <constructor-arg index="0" ref="orderDaoBean"/>
+        <!--第二个参数下标是1-->
+        <constructor-arg index="1" ref="userDaoBean"/>
+    </bean>
+    <bean id="userBean" class="injection.User">
+        <property name="age">
+            <value>20</value>
+        </property>
+    </bean>
+    <bean id="peopleBean" class="injection.People">
+        <property name="names">
+            <list>
+                <value>铁头</value>
+                <value>张三</value>
+                <value>李四</value>
+            </list>
+        </property>
+    </bean>
+</beans>

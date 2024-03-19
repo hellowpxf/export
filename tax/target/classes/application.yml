@@ -1,0 +1,14 @@
+server:
+  port: 8086
+logging:
+  level:
+    tax.: DEBUG
+spring:
+  redis:
+    host: 192.168.149.131
+    port: 6380
+
+  cache:
+    type: redis
+    cache-names: pc
+

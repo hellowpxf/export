@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.Orderdetails">
+
+    <insert id="insertOrderdetails" useGeneratedKeys="false">
+    <!--@mbg.generated-->
+        insert into orderdetails (Id,OrderId,ProductCode,Quantity) values
+        <foreach item="item" index="index" collection="list" separator=",">
+            (#{item.id},#{item.orderId},#{item.productCode},#{item.quantity})
+        </foreach>
+    </insert>
+    <select id="selectOrderDetail" resultType="dao.Orderdetails">
+      select b.Id,b.CustomerName,b.OderDate from orders a inner join orderdetails b on a.id = b.OrderId where b.ProductCode=#{productCode};
+    </select>
+
+</mapper>

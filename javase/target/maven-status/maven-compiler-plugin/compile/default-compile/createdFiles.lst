@@ -1,0 +1,14 @@
+document\GenerateSubjectFileService.class
+document\GetTaxNumberController.class
+utils\HttpUtils.class
+document\GenerateSubjectService.class
+document\GenerateObjectService.class
+proxy\AppStartImp.class
+document\ExcelUtil.class
+utils\ConstantUtils.class
+document\GenerateService.class
+document\GenerateController.class
+proxy\AppStart.class
+document\GenerateApplication.class
+proxy\AppStartProxy.class
+document\GetTaxService.class

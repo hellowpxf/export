@@ -1,0 +1,11 @@
+Create Table Orders(
+Id integer AUTO_INCREMENT PRIMARY KEY ,
+CustomerName VARCHAR(50) NOT NULL,
+OderDate DATETIME NOT NULL
+);
+CREATE TABLE  OrderDetails(
+    Id  INTEGER AUTO_INCREMENT PRIMARY KEY ,
+    OrderId INTEGER NOT NULL,
+    ProductCode VARCHAR(20) NOT NULL,
+    Quantity INTEGER NOT NULL
+);

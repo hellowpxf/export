@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.Vacation">
+
+    <resultMap id="vacation" type="com.dao.Vacation">
+        <id property="id" column="user_id" />
+        <result property="employeeId" column="employee_id"/>
+        <result property="leaveType" column="leave_type"/>
+        <result property="startDate" column="start_date"/>
+        <result property="endDate" column="end_date"/>
+        <result property="totalHours" column="total_hours"/>
+        <result property="remainingHours" column="remaining_hours"/>
+        <result property="expiredDate" column="expired_date"/>
+    </resultMap>
+
+    <!-- 插入数据 -->
+    <insert id="insertLeave" parameterType="com.dao.Vacation">
+        INSERT INTO t_vacation (employee_id, leave_type, start_date, end_date, total_hours, used_hours, remaining_hours, expired_date, notes)
+        VALUES (#{employeeId}, #{leaveType}, #{startDate}, #{endDate}, #{totalHours}, #{usedHours}, #{remainingHours}, #{expiredDate}, #{notes})
+    </insert>
+    <!-- 查询数据 -->
+    <select id="getLeaveById" parameterType="java.lang.Object" resultMap="vacation">
+        SELECT * FROM t_vacation WHERE id = #{id}
+    </select>
+    <!-- 更新数据 -->
+    <update id="updateLeave" parameterType="com.dao.Vacation">
+        UPDATE t_vacation SET employee_id = #{employeeId}, leave_type = #{leaveType}, start_date = #{startDate}, end_date = #{endDate}, total_hours = #{totalHours}, used_hours = #{usedHours}, remaining_hours = #{remainingHours}, expired_date = #{expiredDate}, notes = #{notes} WHERE id = #{id}
+    </update>
+    <!-- 删除数据 -->
+    <delete id="deleteLeave" parameterType="int">
+        DELETE FROM t_vacation WHERE id = #{id}
+    </delete>
+</mapper>
